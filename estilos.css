@@ -1,0 +1,146 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: linear-gradient(#0d1b2a, #1b263b);
+  color: #fff;
+  text-align: center;
+  overflow-x: hidden;
+}
+
+/* Copos de nieve */
+@keyframes snow {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(100vh); }
+}
+.snowflake {
+  position: fixed;
+  top: -10px;
+  color: white;
+  pointer-events: none;
+  animation: snow linear infinite;
+}
+
+/* Logo */
+.logo {
+  max-width: 150px;
+  margin: 20px auto;
+}
+
+/* Botones */
+button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #e63946;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+button:hover { 
+  background: #f1faee; 
+  color: #000; 
+  transform: scale(1.05);
+}
+
+/* Cartas */
+#tablero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 20px auto;
+  max-width: 800px;
+}
+.carta {
+  width: 80px;
+  height: 100px;
+  margin: 5px;
+  perspective: 1000px;
+  display: inline-block;
+}
+.carta-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+.carta.flip .carta-inner { transform: rotateY(180deg); }
+.carta-front, .carta-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border: 2px solid #fff;
+  border-radius: 10px;
+}
+.carta-back {
+  background: url("imagenes/tapa.png") center/cover;
+}
+.carta-front {
+  transform: rotateY(180deg);
+}
+
+/* Modales */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  z-index: 1000;
+}
+.modal-content {
+  background: #1d3557;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 400px;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(255,255,255,0.3);
+  animation: aparecer 0.3s ease;
+}
+@keyframes aparecer {
+  from { transform: scale(0.8); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.cerrar {
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+  color: #fff;
+}
+.cerrar:hover { color: #f1faee; }
+
+#menuPrincipal {
+  display: block;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .carta {
+    width: 60px;
+    height: 80px;
+  }
+  .logo {
+    max-width: 120px;
+  }
+  .modal-content {
+    width: 90%;
+  }
+}
+
+#timer {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #e74c3c; /* rojo navideño */
+  text-align: center;
+  margin: 10px 0;
+  background: rgba(255,255,255,0.8);
+  border: 2px solid #c0392b;
+  border-radius: 8px;
+  padding: 5px 10px;
+  display: inline-block;
+}

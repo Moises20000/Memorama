@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Memorama Navideño</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header>
+    <img src="imagenes/logo.png" alt="Logo" class="logo">
+    <h1>🎄 Memorama de Sistemas 🎄</h1>
+  </header>
+
+  <main id="menuPrincipal">
+    <button id="btnJugar">Iniciar Juego</button>
+    <button id="btnStats">Estadísticas</button>
+  </main>
+
+  <!-- Modal de dificultad -->
+  <div id="modalDificultad" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" data-close="modalDificultad">&times;</span>
+      <h2>Selecciona dificultad</h2>
+      <button data-modo="facil">Fácil (4 pares)</button>
+      <button data-modo="medio">Medio (8 pares)</button>
+      <button data-modo="dificil">Difícil (12 pares)</button>
+      <button data-modo="contrarreloj">Contrarreloj (12 pares)</button>
+    </div>
+  </div>
+
+  <!-- Modal de estadísticas -->
+  <div id="modalStats" class="modal">
+    <div class="modal-content">
+      <span class="cerrar" data-close="modalStats">&times;</span>
+      <h2>Estadísticas</h2>
+      <table id="tablaStats">
+        <thead>
+          <tr><th>Modo</th><th>Mejor Tiempo</th><th>Intentos</th></tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <button id="resetStats">Resetear</button>
+    </div>
+  </div>
+
+  <!-- Modal de ganador -->
+  <div id="modalGanador" class="modal">
+    <div class="modal-content">
+      <h2 id="tituloResultado">¡Ganaste! 🎉</h2>
+      <p id="mensajeTiempo"></p>
+      <button id="btnMenu">Regresar al menú</button>
+      <button id="btnReintentar">Jugar de nuevo</button>
+    </div>
+  </div>
+
+   <p id="timer"></p>
+  <!-- Tablero -->
+  <section id="tablero"></section>
+
+ <!-- Audios -->
+<audio id="musicaMenu" src="musica/inicio.mp3" loop></audio>
+<audio id="musicaAcierto" src="musica/bell.mp3"></audio>
+<audio id="musicaJuego" src="musica/juego.mp3" loop></audio>
+<audio id="musicaGanador" src="musica/ganador.mp3"></audio>
+<audio id="musicaLooser" src="musica/derrota.mp3"></audio>
+  
+<script src="juego.js"></script>
+</body>
+</html>
